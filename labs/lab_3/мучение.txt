@@ -1,0 +1,11 @@
+dP = {key: 0 for key in df['Platform'].dropna().astype(str)}
+dG = {key: 0 for key in df['Genre'].dropna().astype(str)}
+lst = list()
+for keyG in dG:
+    n_df = df[df['Genre'] == keyG]
+    for keyP in dP:
+        nn_df = n_df[n_df['Platform'] == keyP]
+        s = 0
+        for i in range(len(nn_df)):
+            s = s + nn_df.iat[i, 9]
+        lst.append(s)
